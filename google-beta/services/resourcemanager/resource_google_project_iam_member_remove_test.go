@@ -100,7 +100,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_iam_binding" "bar" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   members = ["user:gterraformtest1@gmail.com"]
   role    = "roles/editor"
 }
@@ -129,7 +129,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_iam_binding" "bar" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   members = []
   role    = "roles/editor"
 }
@@ -158,7 +158,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_iam_binding" "bar" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   members = ["user:gterraformtest1@gmail.com", "user:gterraformtest2@gmail.com"]
   role    = "roles/editor"
 }
@@ -187,7 +187,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_iam_binding" "bar" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   members = ["user:gterraformtest2@gmail.com"]
   role    = "roles/editor"
 }
@@ -216,13 +216,13 @@ resource "google_project" "project" {
 }
 
 resource "google_project_iam_binding" "bar" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   members = ["user:gterraformtest1@gmail.com"]
   role    = "roles/editor"
 }
 
 resource "google_project_iam_binding" "baz" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   members = ["user:gterraformtest1@gmail.com"]
   role    = "roles/viewer"
 }
@@ -251,13 +251,13 @@ resource "google_project" "project" {
 }
 
 resource "google_project_iam_binding" "bar" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   members = []
   role    = "roles/editor"
 }
 
 resource "google_project_iam_binding" "baz" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   members = ["user:gterraformtest1@gmail.com"]
   role    = "roles/viewer"
 }

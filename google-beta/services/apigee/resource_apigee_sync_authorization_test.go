@@ -65,7 +65,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 
@@ -83,7 +83,7 @@ resource "google_service_account" "service_account" {
 }
 
 resource "google_project_iam_member" "synchronizer-iam" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   role    = "roles/apigee.synchronizerManager"
   member = "serviceAccount:${google_service_account.service_account.email}"
 }
@@ -109,7 +109,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 
@@ -137,7 +137,7 @@ resource "google_service_account" "service_account3" {
 }
 
 resource "google_project_iam_binding" "synchronizer-iam" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   role    = "roles/apigee.synchronizerManager"
   members = [
     "serviceAccount:${google_service_account.service_account1.email}",
@@ -169,7 +169,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 

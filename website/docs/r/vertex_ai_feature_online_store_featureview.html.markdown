@@ -238,7 +238,7 @@ resource "time_sleep" "wait_30_seconds" {
 
 resource "google_project_service" "vertexai" {
   service = "aiplatform.googleapis.com"
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   timeouts {
     create = "30m"
     update = "40m"

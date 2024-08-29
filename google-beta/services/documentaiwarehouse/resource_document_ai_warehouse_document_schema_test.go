@@ -132,7 +132,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "contentwarehouse" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "contentwarehouse.googleapis.com"
   disable_on_destroy = false
 }

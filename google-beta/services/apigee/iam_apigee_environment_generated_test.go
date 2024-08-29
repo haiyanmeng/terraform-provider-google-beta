@@ -140,18 +140,18 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 
 resource "google_project_service" "servicenetworking" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "servicenetworking.googleapis.com"
   depends_on = [google_project_service.apigee]
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
   depends_on = [google_project_service.servicenetworking]
 }
@@ -215,18 +215,18 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 
 resource "google_project_service" "servicenetworking" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "servicenetworking.googleapis.com"
   depends_on = [google_project_service.apigee]
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
   depends_on = [google_project_service.servicenetworking]
 }
@@ -304,18 +304,18 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 
 resource "google_project_service" "servicenetworking" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "servicenetworking.googleapis.com"
   depends_on = [google_project_service.apigee]
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
   depends_on = [google_project_service.servicenetworking]
 }
@@ -381,18 +381,18 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 
 resource "google_project_service" "servicenetworking" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "servicenetworking.googleapis.com"
   depends_on = [google_project_service.apigee]
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
   depends_on = [google_project_service.servicenetworking]
 }
@@ -456,18 +456,18 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 
 resource "google_project_service" "servicenetworking" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "servicenetworking.googleapis.com"
   depends_on = [google_project_service.apigee]
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
   depends_on = [google_project_service.servicenetworking]
 }

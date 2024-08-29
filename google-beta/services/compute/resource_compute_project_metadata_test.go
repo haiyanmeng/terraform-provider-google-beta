@@ -135,12 +135,12 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
 }
 
 resource "google_compute_project_metadata" "fizzbuzz" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   metadata = {
     banana = "orange"
     sofa   = "darwinism"
@@ -161,12 +161,12 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
 }
 
 resource "google_compute_project_metadata" "fizzbuzz" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   metadata = {
     kiwi    = "papaya"
     finches = "darwinism"
@@ -187,12 +187,12 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
 }
 
 resource "google_compute_project_metadata" "fizzbuzz" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   metadata = {
     paper        = "pen"
     genghis_khan = "french bread"
@@ -214,12 +214,12 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
 }
 
 resource "google_compute_project_metadata" "fizzbuzz" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   metadata = {
     paper = "pen"
     paris = "french bread"

@@ -69,18 +69,18 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
   depends_on = [ google_project_service.servicenetworking ]
 }
 
 resource "google_project_service" "servicenetworking" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "servicenetworking.googleapis.com"
   depends_on = [ google_project_service.apigee ]
 }
@@ -202,14 +202,14 @@ resource "google_project" "project" {
  resource "google_project_service" "apigee" { 
    provider = google-beta 
   
-   project = google_project.project.project_id 
+   project = haiyan-acm-load-test-1 
    service = "apigee.googleapis.com" 
  } 
   
  resource "google_project_service" "compute" { 
    provider = google-beta 
   
-   project = google_project.project.project_id 
+   project = haiyan-acm-load-test-1 
    service = "compute.googleapis.com" 
    depends_on = [google_project_service.apigeeconnect]
  } 
@@ -217,7 +217,7 @@ resource "google_project" "project" {
  resource "google_project_service" "servicenetworking" { 
    provider = google-beta 
   
-   project = google_project.project.project_id 
+   project = haiyan-acm-load-test-1 
    service = "servicenetworking.googleapis.com" 
    depends_on = [google_project_service.compute]
  } 
@@ -225,7 +225,7 @@ resource "google_project" "project" {
  resource "google_project_service" "kms" { 
    provider = google-beta 
   
-   project = google_project.project.project_id 
+   project = haiyan-acm-load-test-1 
    service = "cloudkms.googleapis.com" 
    depends_on = [google_project_service.servicenetworking]
  } 
@@ -233,7 +233,7 @@ resource "google_project" "project" {
  resource "google_project_service" "apigeeconnect" {
   provider = google-beta 
 
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigeeconnect.googleapis.com"
   depends_on = [google_project_service.apigee]
 }
@@ -285,7 +285,7 @@ resource "google_project" "project" {
  resource "google_project_service_identity" "apigee_sa" { 
    provider = google-beta 
   
-   project = google_project.project.project_id 
+   project = haiyan-acm-load-test-1 
    service = google_project_service.apigee.service 
  } 
   

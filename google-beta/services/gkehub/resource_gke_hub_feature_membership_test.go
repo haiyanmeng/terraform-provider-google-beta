@@ -92,7 +92,7 @@ func TestAccGKEHubFeatureMembership_gkehubFeatureAcmUpdate(t *testing.T) {
 func testAccGKEHubFeatureMembership_gkehubFeatureAcmUpdateStart(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + gkeHubClusterMembershipSetup(context) + acctest.Nprintf(`
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "configmanagement"
   location = "global"
 
@@ -103,7 +103,7 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_gke_hub_feature_membership" "feature_member_1" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership.membership_id
@@ -120,7 +120,7 @@ resource "google_gke_hub_feature_membership" "feature_member_1" {
 }
 
 resource "google_gke_hub_feature_membership" "feature_member_2" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership_second.membership_id
@@ -141,7 +141,7 @@ resource "google_gke_hub_feature_membership" "feature_member_2" {
 func testAccGKEHubFeatureMembership_gkehubFeatureAcmMembershipUpdate(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + gkeHubClusterMembershipSetup(context) + acctest.Nprintf(`
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "configmanagement"
   location = "global"
 
@@ -152,7 +152,7 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_gke_hub_feature_membership" "feature_member_1" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership.membership_id
@@ -171,7 +171,7 @@ resource "google_gke_hub_feature_membership" "feature_member_1" {
 }
 
 resource "google_gke_hub_feature_membership" "feature_member_2" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership_second.membership_id
@@ -198,7 +198,7 @@ resource "google_gke_hub_feature_membership" "feature_member_2" {
 func testAccGKEHubFeatureMembership_gkehubFeatureAcmAddHierarchyController(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + gkeHubClusterMembershipSetup(context) + acctest.Nprintf(`
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "configmanagement"
   location = "global"
 
@@ -209,7 +209,7 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_gke_hub_feature_membership" "feature_member_2" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership_second.membership_id
@@ -237,7 +237,7 @@ resource "google_gke_hub_feature_membership" "feature_member_2" {
 }
 
 resource "google_gke_hub_feature_membership" "feature_member_3" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership_third.membership_id
@@ -265,7 +265,7 @@ resource "google_gke_hub_feature_membership" "feature_member_3" {
 }
 
 resource "google_gke_hub_feature_membership" "feature_member_4" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership_fourth.membership_id
@@ -291,7 +291,7 @@ resource "google_gke_hub_feature_membership" "feature_member_4" {
 func testAccGKEHubFeatureMembership_gkehubFeatureAcmRemoveFields(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + gkeHubClusterMembershipSetup(context) + acctest.Nprintf(`
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "configmanagement"
   location = "global"
 
@@ -302,7 +302,7 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_gke_hub_feature_membership" "feature_member_3" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership_third.membership_id
@@ -386,7 +386,7 @@ func TestAccGKEHubFeatureMembership_gkehubFeatureAcmAllFields(t *testing.T) {
 func testAccGKEHubFeatureMembership_gkehubFeatureAcmAllFields(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + acctest.Nprintf(`
 resource "google_container_cluster" "primary" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name               = "tf-test-cl%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
@@ -395,7 +395,7 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_gke_hub_membership" "membership" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   membership_id = "tf-test1%{random_suffix}"
   endpoint {
     gke_cluster {
@@ -406,7 +406,7 @@ resource "google_gke_hub_membership" "membership" {
 }
 
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "configmanagement"
   location = "global"
 
@@ -417,7 +417,7 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_gke_hub_feature_membership" "feature_member" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership.membership_id
@@ -450,7 +450,7 @@ resource "google_gke_hub_feature_membership" "feature_member" {
 func testAccGKEHubFeatureMembership_gkehubFeatureWithPreventDriftField(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + acctest.Nprintf(`
 resource "google_container_cluster" "primary" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name               = "tf-test-cl%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
@@ -459,7 +459,7 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_gke_hub_membership" "membership" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   membership_id = "tf-test1%{random_suffix}"
   endpoint {
     gke_cluster {
@@ -470,7 +470,7 @@ resource "google_gke_hub_membership" "membership" {
 }
 
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "configmanagement"
   location = "global"
 
@@ -481,7 +481,7 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_gke_hub_feature_membership" "feature_member" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership.membership_id
@@ -515,7 +515,7 @@ resource "google_gke_hub_feature_membership" "feature_member" {
 func testAccGKEHubFeatureMembership_gkehubFeatureAcmFewFields(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + acctest.Nprintf(`
 resource "google_container_cluster" "primary" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name               = "tf-test-cl%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
@@ -524,7 +524,7 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_gke_hub_membership" "membership" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   membership_id = "tf-test1%{random_suffix}"
   endpoint {
     gke_cluster {
@@ -535,7 +535,7 @@ resource "google_gke_hub_membership" "membership" {
 }
 
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "configmanagement"
   location = "global"
 
@@ -546,12 +546,12 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_service_account" "feature_sa" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   account_id = "feature-sa"
 }
 
 resource "google_gke_hub_feature_membership" "feature_member" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership.membership_id
@@ -624,7 +624,7 @@ func TestAccGKEHubFeatureMembership_gkehubFeatureAcmOci(t *testing.T) {
 func testAccGKEHubFeatureMembership_gkehubFeatureAcmOciStart(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + gkeHubClusterMembershipSetup_ACMOCI(context) + acctest.Nprintf(`
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "configmanagement"
   location = "global"
 
@@ -635,12 +635,12 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_service_account" "feature_sa" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   account_id = "feature-sa"
 }
 
 resource "google_gke_hub_feature_membership" "feature_member" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership_acmoci.membership_id
@@ -673,7 +673,7 @@ resource "google_gke_hub_feature_membership" "feature_member" {
 func testAccGKEHubFeatureMembership_gkehubFeatureAcmOciUpdate(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + gkeHubClusterMembershipSetup_ACMOCI(context) + acctest.Nprintf(`
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "configmanagement"
   location = "global"
 
@@ -684,12 +684,12 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_service_account" "feature_sa" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   account_id = "feature-sa"
 }
 
 resource "google_gke_hub_feature_membership" "feature_member" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership_acmoci.membership_id
@@ -722,7 +722,7 @@ resource "google_gke_hub_feature_membership" "feature_member" {
 func testAccGKEHubFeatureMembership_gkehubFeatureAcmOciRemoveFields(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + gkeHubClusterMembershipSetup_ACMOCI(context) + acctest.Nprintf(`
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "configmanagement"
   location = "global"
 
@@ -733,12 +733,12 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_service_account" "feature_sa" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   account_id = "feature-sa"
 }
 
 resource "google_gke_hub_feature_membership" "feature_member" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership_acmoci.membership_id
@@ -813,7 +813,7 @@ func TestAccGKEHubFeatureMembership_gkehubFeatureMesh(t *testing.T) {
 func testAccGKEHubFeatureMembership_meshStart(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + acctest.Nprintf(`
 resource "google_container_cluster" "primary" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name               = "tf-test-cl%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
@@ -822,7 +822,7 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_gke_hub_membership" "membership" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   membership_id = "tf-test1%{random_suffix}"
   endpoint {
     gke_cluster {
@@ -833,7 +833,7 @@ resource "google_gke_hub_membership" "membership" {
 }
 
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "servicemesh"
   location = "global"
 
@@ -844,12 +844,12 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_service_account" "feature_sa" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   account_id = "feature-sa"
 }
 
 resource "google_gke_hub_feature_membership" "feature_member" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership.membership_id
@@ -864,7 +864,7 @@ resource "google_gke_hub_feature_membership" "feature_member" {
 func testAccGKEHubFeatureMembership_meshUpdateManagement(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + acctest.Nprintf(`
 resource "google_container_cluster" "primary" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name               = "tf-test-cl%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
@@ -873,7 +873,7 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_gke_hub_membership" "membership" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   membership_id = "tf-test1%{random_suffix}"
   endpoint {
     gke_cluster {
@@ -884,7 +884,7 @@ resource "google_gke_hub_membership" "membership" {
 }
 
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "servicemesh"
   location = "global"
 
@@ -895,12 +895,12 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_service_account" "feature_sa" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   account_id = "feature-sa"
 }
 
 resource "google_gke_hub_feature_membership" "feature_member" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership.membership_id
@@ -914,7 +914,7 @@ resource "google_gke_hub_feature_membership" "feature_member" {
 func testAccGKEHubFeatureMembership_meshUpdateControlPlane(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + acctest.Nprintf(`
 resource "google_container_cluster" "primary" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name               = "tf-test-cl%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
@@ -923,7 +923,7 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_gke_hub_membership" "membership" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   membership_id = "tf-test1%{random_suffix}"
   endpoint {
     gke_cluster {
@@ -934,7 +934,7 @@ resource "google_gke_hub_membership" "membership" {
 }
 
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "servicemesh"
   location = "global"
 
@@ -945,12 +945,12 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_service_account" "feature_sa" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   account_id = "feature-sa"
 }
 
 resource "google_gke_hub_feature_membership" "feature_member" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership.membership_id
@@ -1017,14 +1017,14 @@ func TestAccGKEHubFeatureMembership_gkehubFeaturePolicyController(t *testing.T) 
 func testAccGKEHubFeatureMembership_policycontrollerStart(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + gkeHubClusterMembershipSetup(context) + acctest.Nprintf(`
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "policycontroller"
   location = "global"
   depends_on = [google_project_service.container, google_project_service.gkehub, google_project_service.poco]
 }
 
 resource "google_gke_hub_feature_membership" "feature_member" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership.membership_id
@@ -1043,14 +1043,14 @@ resource "google_gke_hub_feature_membership" "feature_member" {
 func testAccGKEHubFeatureMembership_policycontrollerUpdateDefaultFields(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + gkeHubClusterMembershipSetup(context) + acctest.Nprintf(`
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "policycontroller"
   location = "global"
   depends_on = [google_project_service.container, google_project_service.gkehub, google_project_service.poco]
 }
 
 resource "google_gke_hub_feature_membership" "feature_member" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership.membership_id
@@ -1114,14 +1114,14 @@ resource "google_gke_hub_feature_membership" "feature_member" {
 func testAccGKEHubFeatureMembership_policycontrollerUpdateMaps(context map[string]interface{}) string {
 	return gkeHubFeatureProjectSetup(context) + gkeHubClusterMembershipSetup(context) + acctest.Nprintf(`
 resource "google_gke_hub_feature" "feature" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "policycontroller"
   location = "global"
   depends_on = [google_project_service.container, google_project_service.gkehub, google_project_service.poco]
 }
 
 resource "google_gke_hub_feature_membership" "feature_member" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "global"
   feature = google_gke_hub_feature.feature.name
   membership = google_gke_hub_membership.membership.membership_id
@@ -1167,7 +1167,7 @@ resource "google_container_cluster" "primary" {
   name               = "tf-test-cl%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   deletion_protection = false
   depends_on = [google_project_service.container, google_project_service.container, google_project_service.gkehub]
 }
@@ -1176,7 +1176,7 @@ resource "google_container_cluster" "secondary" {
   name               = "tf-test-cl2%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   deletion_protection = false
   depends_on = [google_project_service.container, google_project_service.container, google_project_service.gkehub]
 }
@@ -1185,7 +1185,7 @@ resource "google_container_cluster" "tertiary" {
   name               = "tf-test-cl3%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   deletion_protection = false
   depends_on = [google_project_service.container, google_project_service.container, google_project_service.gkehub]
 }
@@ -1195,13 +1195,13 @@ resource "google_container_cluster" "quarternary" {
   name               = "tf-test-cl4%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   deletion_protection = false
   depends_on = [google_project_service.container, google_project_service.container, google_project_service.gkehub]
 }
 
 resource "google_gke_hub_membership" "membership" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   membership_id = "tf-test1%{random_suffix}"
   endpoint {
     gke_cluster {
@@ -1212,7 +1212,7 @@ resource "google_gke_hub_membership" "membership" {
 }
 
 resource "google_gke_hub_membership" "membership_second" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   membership_id = "tf-test2%{random_suffix}"
   endpoint {
     gke_cluster {
@@ -1223,7 +1223,7 @@ resource "google_gke_hub_membership" "membership_second" {
 }
 
 resource "google_gke_hub_membership" "membership_third" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   membership_id = "tf-test3%{random_suffix}"
   endpoint {
     gke_cluster {
@@ -1234,7 +1234,7 @@ resource "google_gke_hub_membership" "membership_third" {
 }
 
 resource "google_gke_hub_membership" "membership_fourth" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   membership_id = "tf-test4%{random_suffix}"
   endpoint {
     gke_cluster {
@@ -1261,13 +1261,13 @@ resource "google_container_cluster" "container_acmoci" {
   location           = "us-central1-a"
   initial_node_count = 1
   network = google_compute_network.testnetwork.self_link
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   deletion_protection = false
   depends_on = [google_project_service.container, google_project_service.container, google_project_service.gkehub]
 }
 
 resource "google_gke_hub_membership" "membership_acmoci" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   membership_id = "tf-test1%{random_suffix}"
   endpoint {
     gke_cluster {
@@ -1321,59 +1321,51 @@ func testAccCheckGkeHubFeatureMembershipNotPresent(t *testing.T, project, locati
 // Copy this function from the package gkehub2_test to here
 func gkeHubFeatureProjectSetup(context map[string]interface{}) string {
 	return acctest.Nprintf(`
-resource "google_project" "project" {
-  name            = "tf-test-gkehub%{random_suffix}"
-  project_id      = "tf-test-gkehub%{random_suffix}"
-  org_id          = "%{org_id}"
-  billing_account = "%{billing_account}"
-  deletion_policy = "DELETE"
-}
-
 resource "google_project_service" "anthos" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "anthos.googleapis.com"
   disable_on_destroy = false
 }
 
 resource "google_project_service" "mesh" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "meshconfig.googleapis.com"
 }
 
 resource "google_project_service" "mci" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "multiclusteringress.googleapis.com"
 }
 
 resource "google_project_service" "acm" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "anthosconfigmanagement.googleapis.com"
 }
 
 resource "google_project_service" "poco" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "anthospolicycontroller.googleapis.com"
 }
 
 resource "google_project_service" "mcsd" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "multiclusterservicediscovery.googleapis.com"
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
   disable_on_destroy = false
 }
 
 resource "google_project_service" "container" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "container.googleapis.com"
   disable_on_destroy = false
 }
 
 resource "google_project_service" "gkehub" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "gkehub.googleapis.com"
   disable_on_destroy = false
 }

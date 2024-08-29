@@ -77,7 +77,7 @@ resource "time_sleep" "wait_60_seconds" {
 }
 
 resource "google_project_service" "firestore" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "firestore.googleapis.com"
 
   # Needed for CI tests for permissions to propagate, should not be needed for actual usage
@@ -149,7 +149,7 @@ resource "time_sleep" "wait_60_seconds" {
 }
 
 resource "google_project_service" "firestore" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "firestore.googleapis.com"
 
   # Needed for CI tests for permissions to propagate, should not be needed for actual usage

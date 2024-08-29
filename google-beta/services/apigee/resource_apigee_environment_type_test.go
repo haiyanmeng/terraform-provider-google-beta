@@ -62,28 +62,28 @@ resource "google_project" "project" {
 resource "google_project_service" "apigee" {
   provider = google-beta
 
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 
 resource "google_project_service" "compute" {
   provider = google-beta
 
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
 }
 
 resource "google_project_service" "servicenetworking" {
   provider = google-beta
 
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "servicenetworking.googleapis.com"
 }
 
 resource "google_project_service" "kms" {
   provider = google-beta
 
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "cloudkms.googleapis.com"
 }
 
@@ -134,7 +134,7 @@ resource "google_kms_crypto_key" "apigee_key" {
 resource "google_project_service_identity" "apigee_sa" {
   provider = google-beta
 
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = google_project_service.apigee.service
 }
 

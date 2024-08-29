@@ -64,7 +64,7 @@ func TestAccGKEHub2Fleet_gkehubFleetBasicExample_update(t *testing.T) {
 func testAccGKEHub2Fleet_basic(context map[string]interface{}) string {
 	return gkeHubFleetProjectSetupForGA(context) + acctest.Nprintf(`
 resource "google_gke_hub_fleet" "default" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   display_name = "my production fleet"
   default_cluster_config { 
 	binary_authorization_config {
@@ -83,7 +83,7 @@ resource "google_gke_hub_fleet" "default" {
 func testAccGKEHub2Fleet_update(context map[string]interface{}) string {
 	return gkeHubFleetProjectSetupForGA(context) + acctest.Nprintf(`
 resource "google_gke_hub_fleet" "default" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   display_name = "my updated fleet"
   default_cluster_config {
 	binary_authorization_config {
@@ -105,7 +105,7 @@ resource "google_gke_hub_fleet" "default" {
 func testAccGKEHub2Fleet_removedDefaultClusterConfig(context map[string]interface{}) string {
 	return gkeHubFleetProjectSetupForGA(context) + acctest.Nprintf(`
 resource "google_gke_hub_fleet" "default" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   display_name = "my updated fleet"
 
   depends_on = [time_sleep.wait_for_gkehub_enablement]
@@ -124,14 +124,14 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "gkehub" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "gkehub.googleapis.com"
   disable_on_destroy = false
   depends_on = [google_project_service.anthos]
 }
 
 resource "google_project_service" "anthos" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "anthos.googleapis.com"
   disable_on_destroy = false
 }

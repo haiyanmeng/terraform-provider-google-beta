@@ -48,7 +48,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "vmwareengine" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "vmwareengine.googleapis.com"
 }
 
@@ -71,7 +71,7 @@ resource "google_vmwareengine_network" "network-peering-nw" {
 }
 
 resource "google_vmwareengine_network" "network-peering-peer-nw" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name              = "tf-test-peer-nw%{random_suffix}"
   location          = "global"
   type              = "STANDARD"
@@ -82,7 +82,7 @@ resource "google_vmwareengine_network" "network-peering-peer-nw" {
 }
 
 resource "google_vmwareengine_network_peering" "vmw-engine-network-peering" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "tf-test-sample-network-peering%{random_suffix}"
   description = "Sample description"
   vmware_engine_network = google_vmwareengine_network.network-peering-nw.id
@@ -95,7 +95,7 @@ resource "google_vmwareengine_network_peering" "vmw-engine-network-peering" {
 }
 
 data "google_vmwareengine_network_peering" "ds" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = google_vmwareengine_network_peering.vmw-engine-network-peering.name
 }
 `, context)

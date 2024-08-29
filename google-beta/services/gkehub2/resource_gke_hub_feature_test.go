@@ -73,7 +73,7 @@ resource "time_sleep" "wait_for_gkehub_enablement" {
 resource "google_gke_hub_feature" "feature" {
   name = "fleetobservability"
   location = "global"
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   spec {
     fleetobservability {
       logging_config {
@@ -101,7 +101,7 @@ resource "time_sleep" "wait_for_gkehub_enablement" {
 resource "google_gke_hub_feature" "feature" {
   name = "fleetobservability"
   location = "global"
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   spec {
     fleetobservability {
       logging_config {
@@ -126,7 +126,7 @@ resource "time_sleep" "wait_for_gkehub_enablement" {
 resource "google_gke_hub_feature" "feature" {
   name = "fleetobservability"
   location = "global"
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   spec {
     fleetobservability {
       logging_config {
@@ -153,45 +153,45 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "mesh" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "meshconfig.googleapis.com"
   provider = google-beta
 }
 
 resource "google_project_service" "mci" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "multiclusteringress.googleapis.com"
   provider = google-beta
 }
 
 resource "google_project_service" "acm" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "anthosconfigmanagement.googleapis.com"
   provider = google-beta
 }
 
 resource "google_project_service" "mcsd" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "multiclusterservicediscovery.googleapis.com"
   provider = google-beta
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
   disable_on_destroy = false
   provider = google-beta
 }
 
 resource "google_project_service" "container" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "container.googleapis.com"
   disable_on_destroy = false
   provider = google-beta
 }
 
 resource "google_project_service" "gkehub" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "gkehub.googleapis.com"
   disable_on_destroy = false
   provider = google-beta
@@ -244,7 +244,7 @@ resource "google_container_cluster" "primary" {
   name               = "tf-test%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   deletion_protection = false
   depends_on = [google_project_service.mci, google_project_service.container, google_project_service.container, google_project_service.gkehub]
 }
@@ -253,7 +253,7 @@ resource "google_container_cluster" "secondary" {
   name               = "tf-test2%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   deletion_protection = false
   depends_on = [google_project_service.mci, google_project_service.container, google_project_service.container, google_project_service.gkehub]
 }
@@ -265,7 +265,7 @@ resource "google_gke_hub_membership" "membership" {
       resource_link = "//container.googleapis.com/${google_container_cluster.primary.id}"
     }
   }
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 
 resource "google_gke_hub_membership" "membership_second" {
@@ -275,7 +275,7 @@ resource "google_gke_hub_membership" "membership_second" {
       resource_link = "//container.googleapis.com/${google_container_cluster.secondary.id}"
     }
   }
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 
 resource "google_gke_hub_feature" "feature" {
@@ -286,7 +286,7 @@ resource "google_gke_hub_feature" "feature" {
       config_membership = google_gke_hub_membership.membership.id
     }
   }
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -297,7 +297,7 @@ resource "google_container_cluster" "primary" {
   name               = "tf-test%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   deletion_protection = false
   depends_on = [google_project_service.mci, google_project_service.container, google_project_service.container, google_project_service.gkehub]
 }
@@ -306,7 +306,7 @@ resource "google_container_cluster" "secondary" {
   name               = "tf-test2%{random_suffix}"
   location           = "us-central1-a"
   initial_node_count = 1
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   deletion_protection = false
   depends_on = [google_project_service.mci, google_project_service.container, google_project_service.container, google_project_service.gkehub]
 }
@@ -318,7 +318,7 @@ resource "google_gke_hub_membership" "membership" {
       resource_link = "//container.googleapis.com/${google_container_cluster.primary.id}"
     }
   }
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 
 resource "google_gke_hub_membership" "membership_second" {
@@ -328,7 +328,7 @@ resource "google_gke_hub_membership" "membership_second" {
       resource_link = "//container.googleapis.com/${google_container_cluster.secondary.id}"
     }
   }
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 
 resource "google_gke_hub_feature" "feature" {
@@ -342,7 +342,7 @@ resource "google_gke_hub_feature" "feature" {
   labels = {
     foo = "bar"
   }
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -411,7 +411,7 @@ resource "google_gke_hub_feature" "feature" {
     }
   }
   depends_on = [google_project_service.anthos, google_project_service.gkehub, google_project_service.mesh]
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -427,7 +427,7 @@ resource "google_gke_hub_feature" "feature" {
     }
   }
   depends_on = [google_project_service.anthos, google_project_service.gkehub, google_project_service.mesh]
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -438,7 +438,7 @@ resource "google_gke_hub_feature" "feature" {
   name = "servicemesh"
   location = "global"
   depends_on = [google_project_service.anthos, google_project_service.gkehub, google_project_service.mesh]
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -454,7 +454,7 @@ resource "google_gke_hub_feature" "feature" {
     }
   }
   depends_on = [google_project_service.anthos, google_project_service.gkehub, google_project_service.mesh]
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -534,7 +534,7 @@ resource "google_gke_hub_feature" "feature" {
     }
   }
   depends_on = [google_project_service.anthos, google_project_service.gkehub, google_project_service.acm]
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -561,7 +561,7 @@ resource "google_gke_hub_feature" "feature" {
     }
   }
   depends_on = [google_project_service.anthos, google_project_service.gkehub, google_project_service.acm]
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -590,7 +590,7 @@ resource "google_gke_hub_feature" "feature" {
     }
   }
   depends_on = [google_project_service.anthos, google_project_service.gkehub, google_project_service.acm]
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -618,7 +618,7 @@ resource "google_gke_hub_feature" "feature" {
     }
   }
   depends_on = [google_project_service.anthos, google_project_service.gkehub, google_project_service.acm]
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -629,7 +629,7 @@ resource "google_gke_hub_feature" "feature" {
   name = "configmanagement"
   location = "global"
   depends_on = [google_project_service.anthos, google_project_service.gkehub, google_project_service.acm]
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -686,7 +686,7 @@ resource "google_gke_hub_feature" "feature" {
     }
   }
   depends_on = [google_project_service.gkehub]
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 
 resource "google_gke_hub_feature" "feature_2" {
@@ -728,7 +728,7 @@ resource "google_gke_hub_feature" "feature" {
       }
     }
   }
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 
 resource "google_gke_hub_feature" "feature_2" {
@@ -815,7 +815,7 @@ resource "google_gke_hub_feature" "feature" {
     }
   }
   depends_on = [google_project_service.anthos, google_project_service.gkehub, google_project_service.poco]
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -879,7 +879,7 @@ resource "google_gke_hub_feature" "feature" {
     }
   }
   depends_on = [google_project_service.anthos, google_project_service.gkehub, google_project_service.poco]
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -906,7 +906,7 @@ resource "google_gke_hub_feature" "feature" {
     }
   }
   depends_on = [google_project_service.anthos, google_project_service.gkehub, google_project_service.poco]
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 `, context)
 }
@@ -968,7 +968,7 @@ func testAccGKEHubFeature_gkehubFeatureMcsdUpdate(context map[string]interface{}
 resource "google_gke_hub_feature" "feature" {
   name = "multiclusterservicediscovery"
   location = "global"
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   labels = {
     foo = "quux"
     baz = "qux"
@@ -989,49 +989,49 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "mesh" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "meshconfig.googleapis.com"
 }
 
 resource "google_project_service" "mci" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "multiclusteringress.googleapis.com"
 }
 
 resource "google_project_service" "acm" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "anthosconfigmanagement.googleapis.com"
 }
 
 resource "google_project_service" "poco" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "anthospolicycontroller.googleapis.com"
 }
 
 resource "google_project_service" "mcsd" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "multiclusterservicediscovery.googleapis.com"
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
   disable_on_destroy = false
 }
 
 resource "google_project_service" "container" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "container.googleapis.com"
   disable_on_destroy = false
 }
 
 resource "google_project_service" "anthos" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "anthos.googleapis.com"
 }
 
 resource "google_project_service" "gkehub" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "gkehub.googleapis.com"
   disable_on_destroy = false
 }

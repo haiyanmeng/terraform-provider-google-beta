@@ -52,12 +52,12 @@ resource "google_project" "project" {
   deletion_policy = "DELETE"
 }
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
 }
 
 resource "google_project_service" "oslogin" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "oslogin.googleapis.com"
   disable_dependent_services = true
 }
@@ -70,7 +70,7 @@ resource "time_offset" "expiry" {
 }
 
 resource "google_os_login_ssh_public_key" "cache" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   user    =  data.google_client_openid_userinfo.me.email
   key     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPM4pxpbPpjuBocS6qlW0BHRYgH5xmv/yVrANZR9lc1N"
   expiration_time_usec = time_offset.expiry.unix * 1000000

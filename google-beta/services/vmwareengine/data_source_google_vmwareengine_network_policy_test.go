@@ -49,7 +49,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "vmwareengine" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "vmwareengine.googleapis.com"
 }
 
@@ -61,7 +61,7 @@ resource "time_sleep" "sleep" {
 }
 
 resource "google_vmwareengine_network" "network-policy-ds-nw" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = "tf-test-sample-nw%{random_suffix}"
   location = "global" 
   type = "STANDARD"
@@ -73,7 +73,7 @@ resource "google_vmwareengine_network" "network-policy-ds-nw" {
 }
 
 resource "google_vmwareengine_network_policy" "vmw-engine-network-policy" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   location = "%{region}"
   name = "tf-test-sample-network-policy%{random_suffix}"
   internet_access {
@@ -91,7 +91,7 @@ resource "google_vmwareengine_network_policy" "vmw-engine-network-policy" {
 }
 
 data "google_vmwareengine_network_policy" "ds" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name = google_vmwareengine_network_policy.vmw-engine-network-policy.name
   location = "%{region}"
   depends_on = [

@@ -48,7 +48,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "vmwareengine" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "vmwareengine.googleapis.com"
 }
 

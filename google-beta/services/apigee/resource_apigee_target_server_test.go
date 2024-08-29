@@ -58,7 +58,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 
@@ -135,7 +135,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 
@@ -248,7 +248,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 
@@ -358,7 +358,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 

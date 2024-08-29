@@ -200,7 +200,7 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "binauthz" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "binaryauthorization.googleapis.com"
 }
 `, pid, pid, org, billing)
@@ -218,12 +218,12 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "binauthz" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "binaryauthorization.googleapis.com"
 }
 
 resource "google_binary_authorization_policy" "policy" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 
   admission_whitelist_patterns {
     name_pattern = "gcr.io/google_containers/*"
@@ -251,12 +251,12 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "binauthz" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "binaryauthorization.googleapis.com"
 }
 
 resource "google_container_analysis_note" "note" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 
   name = "tf-test-%s"
   attestation_authority {
@@ -269,7 +269,7 @@ resource "google_container_analysis_note" "note" {
 }
 
 resource "google_binary_authorization_attestor" "attestor" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 
   name        = "tf-test-%s"
   description = "my description"
@@ -281,7 +281,7 @@ resource "google_binary_authorization_attestor" "attestor" {
 }
 
 resource "google_binary_authorization_policy" "policy" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 
   admission_whitelist_patterns {
     name_pattern = "gcr.io/google_containers/*"
@@ -319,12 +319,12 @@ data "google_client_config" "current" {
 }
 
 resource "google_project_service" "binauthz" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "binaryauthorization.googleapis.com"
 }
 
 resource "google_container_analysis_note" "note" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 
   name = "tf-test-%s"
   attestation_authority {
@@ -347,7 +347,7 @@ resource "google_binary_authorization_attestor" "attestor" {
 }
 
 resource "google_binary_authorization_policy" "policy" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 
   admission_whitelist_patterns {
     name_pattern = "gcr.io/google_containers/*"

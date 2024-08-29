@@ -939,7 +939,7 @@ resource "google_project" "project" {
 
 resource "google_project_service" "service" {
 	provider     = google-beta
-	project = google_project.project.project_id
+	project = haiyan-acm-load-test-1
 	service = "compute.googleapis.com"
 	timeouts {
 	  create = "30m"
@@ -950,7 +950,7 @@ resource "google_project_service" "service" {
 
 resource "google_project_service" "monitoring" {
 	provider     = google-beta
-	project = google_project.project.project_id
+	project = haiyan-acm-load-test-1
 	service = "monitoring.googleapis.com"
 	timeouts {
 	  create = "30m"
@@ -963,7 +963,7 @@ resource "google_project_service" "monitoring" {
 
 resource "google_compute_instance" "vm" {
   provider     = google-beta
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-12"
@@ -992,7 +992,7 @@ resource "google_compute_instance" "vm" {
 
 resource "google_compute_machine_image" "foobar" {
   provider        = google-beta
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   name            = "%s"
   source_instance = google_compute_instance.vm.self_link
 }

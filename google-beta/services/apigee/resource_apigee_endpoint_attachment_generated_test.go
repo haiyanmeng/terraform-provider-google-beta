@@ -70,17 +70,17 @@ resource "google_project" "project" {
 }
 
 resource "google_project_service" "apigee" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "apigee.googleapis.com"
 }
 
 resource "google_project_service" "compute" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "compute.googleapis.com"
 }
 
 resource "google_project_service" "servicenetworking" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "servicenetworking.googleapis.com"
 }
 
@@ -126,7 +126,7 @@ resource "google_compute_forwarding_rule" "psc_ilb_consumer" {
   network               = "default"
   ip_address            = google_compute_address.psc_ilb_consumer_address.address
 
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 
 resource "google_compute_forwarding_rule" "psc_ilb_target_service" {
@@ -139,7 +139,7 @@ resource "google_compute_forwarding_rule" "psc_ilb_target_service" {
   network               = google_compute_network.psc_ilb_network.name
   subnetwork            = google_compute_subnetwork.psc_ilb_producer_subnetwork.name
 
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 
 resource "google_compute_region_backend_service" "producer_service_backend" {
@@ -148,7 +148,7 @@ resource "google_compute_region_backend_service" "producer_service_backend" {
 
   health_checks = [google_compute_health_check.producer_service_health_check.id]
 
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 
 resource "google_compute_health_check" "producer_service_health_check" {
@@ -179,7 +179,7 @@ resource "google_compute_subnetwork" "psc_ilb_producer_subnetwork" {
   network       = google_compute_network.psc_ilb_network.id
   ip_cidr_range = "10.0.0.0/16"
 
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 
 resource "google_compute_subnetwork" "psc_ilb_nat" {
@@ -190,7 +190,7 @@ resource "google_compute_subnetwork" "psc_ilb_nat" {
   purpose       =  "PRIVATE_SERVICE_CONNECT"
   ip_cidr_range = "10.1.0.0/16"
 
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 
 resource "google_compute_service_attachment" "psc_ilb_service_attachment" {
@@ -203,7 +203,7 @@ resource "google_compute_service_attachment" "psc_ilb_service_attachment" {
   nat_subnets              = [google_compute_subnetwork.psc_ilb_nat.id]
   target_service           = google_compute_forwarding_rule.psc_ilb_target_service.id
 
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
 }
 
 resource "google_apigee_organization" "apigee_org" {

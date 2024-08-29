@@ -133,18 +133,18 @@ resource "google_project" "project" {
   deletion_policy = "DELETE"
 }
 resource "google_project_service" "mcsd" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "multiclusterservicediscovery.googleapis.com"
 }
 resource "google_project_service" "gkehub" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "gkehub.googleapis.com"
   disable_on_destroy = false
 }
 resource "google_gke_hub_feature" "feature" {
   name = "multiclusterservicediscovery"
   location = "global"
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   labels = {
     foo = "bar"
   }
@@ -170,18 +170,18 @@ resource "google_project" "project" {
   deletion_policy = "DELETE"
 }
 resource "google_project_service" "mcsd" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "multiclusterservicediscovery.googleapis.com"
 }
 resource "google_project_service" "gkehub" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "gkehub.googleapis.com"
   disable_on_destroy = false
 }
 resource "google_gke_hub_feature" "feature" {
   name = "multiclusterservicediscovery"
   location = "global"
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   labels = {
     foo = "bar"
   }
@@ -220,18 +220,18 @@ resource "google_project" "project" {
   deletion_policy = "DELETE"
 }
 resource "google_project_service" "mcsd" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "multiclusterservicediscovery.googleapis.com"
 }
 resource "google_project_service" "gkehub" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "gkehub.googleapis.com"
   disable_on_destroy = false
 }
 resource "google_gke_hub_feature" "feature" {
   name = "multiclusterservicediscovery"
   location = "global"
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   labels = {
     foo = "bar"
   }
@@ -258,18 +258,18 @@ resource "google_project" "project" {
   deletion_policy = "DELETE"
 }
 resource "google_project_service" "mcsd" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "multiclusterservicediscovery.googleapis.com"
 }
 resource "google_project_service" "gkehub" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "gkehub.googleapis.com"
   disable_on_destroy = false
 }
 resource "google_gke_hub_feature" "feature" {
   name = "multiclusterservicediscovery"
   location = "global"
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   labels = {
     foo = "bar"
   }
@@ -295,18 +295,18 @@ resource "google_project" "project" {
   deletion_policy = "DELETE"
 }
 resource "google_project_service" "mcsd" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "multiclusterservicediscovery.googleapis.com"
 }
 resource "google_project_service" "gkehub" {
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   service = "gkehub.googleapis.com"
   disable_on_destroy = false
 }
 resource "google_gke_hub_feature" "feature" {
   name = "multiclusterservicediscovery"
   location = "global"
-  project = google_project.project.project_id
+  project = haiyan-acm-load-test-1
   labels = {
     foo = "bar"
   }
